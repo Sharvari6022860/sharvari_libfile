@@ -1,23 +1,23 @@
 settings:
-  lib_name: invx1_sky130_tt_1v80_025C    # Name of the generated Liberty library
+  lib_name: invx1_sky130_tt_1v80_025C
   results_dir: output
-  temperature: 25                           # °C
+  temperature: 25
   named_nodes:
     primary_power:
-      name: vdd                             # Must match your netlist pin name (lowercase)
-      voltage: 1.8                          # Supply voltage (V)
+      name: VDD
+      voltage: 1.8
     primary_ground:
-      name: vss                             # Must match your netlist pin name (lowercase)
+      name: VSS
       voltage: 0.0
 
 cells:
-  invx1:                                    # Must match your .subckt name exactly
-    netlist: "cells/invx1.spice"            # Updated filename to match your file
-    area: 3.7536                            # Replace with your actual layout area in um^2 from Magic/KLayout
+  invx1:
+    netlist: "cells/invx1.spice"
+    area: 3.7536
     models:
-      - "config/mc_switches.spice"          # Required first line for Sky130 Monte-Carlo switches
-      - "sky130A/libs.tech/ngspice/sky130.lib.spice tt"   # PDK and typical corner
-    data_slews: [0.01, 0.05, 0.1, 0.2]      # Input transition times (ns)
-    loads: [0.001, 0.005, 0.01, 0.05]       # Output load caps (pF)
+      - "config/mc_switches.spice"
+      - "sky130A/libs.tech/ngspice/sky130.lib.spice tt"
+    data_slews: [0.01, 0.05, 0.1, 0.2]
+    loads: [0.001, 0.005, 0.01, 0.05]
     functions:
-      - "z = !a"                            # Updated to match your netlist output (z) and input (a)
+      - "Z = !A"
