@@ -7,3 +7,4 @@ C2 a vdd 0.13501f
 C3 z vss 0.1529f
 C4 a vss 0.33416f
 C5 vdd vss 0.76353f
+.ends invx1
