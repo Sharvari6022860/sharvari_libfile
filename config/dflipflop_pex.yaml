@@ -13,12 +13,9 @@ settings:
 cells:
   dflipflop_pex:
     netlist: "cells/dflipflop_pex.spice"
-    area: 19.50                    # Aġġusta skont l-area fiżika f'um^2 mill-layout tiegħek
+    area: 19.50
     models:
       - "config/mc_switches.spice"
       - "sky130A/libs.tech/ngspice/sky130.lib.spice tt"
     data_slews: [0.01, 0.05, 0.1, 0.2]
     loads: [0.001, 0.005, 0.01, 0.05]
-    functions:
-      - "Q <= D"
-    clock: "posedge CLK"
